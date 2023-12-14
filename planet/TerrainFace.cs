@@ -1,8 +1,8 @@
-using Godot;
+/*using Godot;
 using Microsoft.VisualBasic;
 using System;
 
-public partial class TerrainFace : MeshInstance3D
+public partial class TerrainFace : Node
 {
 	ArrayMesh mesh_array;
 	int resolution;
@@ -10,6 +10,8 @@ public partial class TerrainFace : MeshInstance3D
 	Vector3 axisA;
 	Vector3 axisB;
 	
+	[Export]
+	bool Update = false;
 	
 	
 	public TerrainFace(ArrayMesh mesh, int resolution, Vector3 localUp)
@@ -25,12 +27,10 @@ public partial class TerrainFace : MeshInstance3D
 	
 	public void ConstructMesh()
 	{
-		
-
 		// Array of vertices with size determined by resolution
 		Vector3[] vertices = new Vector3[resolution * resolution];
 
-		// Array of 
+		// Array of integers determining how triangles are drawn
 		int[] triangles = new int[(resolution-1)*(resolution-1)*6];
 		int triIndex = 0;
 
@@ -43,7 +43,7 @@ public partial class TerrainFace : MeshInstance3D
 				// Calculate vertex and add it to vertices array
 				int i = x + y * resolution;
 				Vector2 percent = new Vector2(x, y)  / (resolution - 1);
-				Vector3 pointOnUnitCube = localUp + (percent.X-0.5f) * 2 * axisA + (percent.Y - -0.5f) * 2 * axisB;
+				Vector3 pointOnUnitCube = localUp + (percent.X - 0.5f) * 2 * axisA + (percent.Y - 0.5f) * 2 * axisB;
 				vertices[i] = pointOnUnitCube;
 				
 				// Create triangles within grid of vertices
@@ -68,7 +68,22 @@ public partial class TerrainFace : MeshInstance3D
 		meshData[(int)Mesh.ArrayType.Index] = triangles;
 
 		mesh_array.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, meshData);
-		
-		
+
+
+		SurfaceTool surfaceTool = new SurfaceTool();
+		surfaceTool.Begin(Mesh.PrimitiveType.Triangles);
+		for (int i = 0; i < vertices.Length; i++)
+		{
+			//surfaceTool.SetUV(uvs[i]);
+			surfaceTool.AddVertex(vertices[i]);
+		}
+		foreach (int index in triangles) 
+		{
+			surfaceTool.AddIndex(index);
+		}
+		surfaceTool.GenerateNormals();
+		mesh_array = surfaceTool.Commit();
+		Mesh = mesh_array;
 	}
 }
+*/
