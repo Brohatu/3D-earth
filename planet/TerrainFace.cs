@@ -4,15 +4,15 @@ using System;
 
 public class TerrainFace
 {
-	ArrayMesh mesh;
+	ArrayMesh mesh_array;
 	int resolution;
-	Vector3 localUp;
+	Vector3 localUp;	// Normal to surface
 	Vector3 axisA;
 	Vector3 axisB;
 	
 	public TerrainFace(ArrayMesh mesh, int resolution, Vector3 localUp)
 	{
-		this.mesh = mesh;
+		this.mesh_array = mesh;
 		this.resolution = resolution;
 		this.localUp = localUp;
 		
@@ -22,8 +22,7 @@ public class TerrainFace
 	
 	public void ConstructMesh()
 	{
-		var meshData = new Godot.Collections.Array();
-		meshData.Resize((int)Mesh.ArrayType.Max);
+		
 
 		// Array of vertices with size determined by resolution
 		Vector3[] vertices = new Vector3[resolution * resolution];
@@ -60,13 +59,15 @@ public class TerrainFace
 			}
 		}
 		
-		
+		var meshData = new Godot.Collections.Array();
+		meshData.Resize((int)Mesh.ArrayType.Max);
 		meshData[(int)Mesh.ArrayType.Vertex] = vertices;
-		mesh.ClearSurfaces();
-		mesh.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, meshData);
+		meshData[(int)Mesh.ArrayType.Index] = triangles;
+
+		mesh_array.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, meshData);
 		
 		var m = new MeshInstance3D();
-		m.Mesh = mesh;
+		
 		//mesh.vertices = vertices;
 		//mesh.triangles = triangles;
 		//mesh.RecalculateNormals();
