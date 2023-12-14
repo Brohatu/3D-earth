@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://csyxum48mtlnf" path="res://icon.svg" id="1_0cksm"]
 [ext_resource type="Script" path="res://cube_mesh.gd" id="2_cn1j3"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_q5nhs"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_8p8vi"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1, 1.00001, 1),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -22,7 +22,7 @@ albedo_texture = ExtResource("1_0cksm")
 
 [node name="PlanetMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -1)
-mesh = SubResource("ArrayMesh_q5nhs")
+mesh = SubResource("ArrayMesh_8p8vi")
 surface_material_override/0 = SubResource("StandardMaterial3D_l5jpy")
 script = ExtResource("2_cn1j3")
 
