@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1hq0p3dsq2o"]
+
+[ext_resource type="Texture2D" uid="uid://csyxum48mtlnf" path="res://icon.svg" id="1_0cksm"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kkubs"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1, 1.00001, 1),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": 4115,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 3, 0, 2, 0, 4, 0, 2, 0, 5, 0, 4, 0, 2, 0, 1, 0, 5, 0, 1, 0, 6, 0, 5, 0, 1, 0, 7, 0, 6, 0, 1, 0, 0, 0, 7, 0, 0, 0, 3, 0, 4, 0, 7, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 7, 0, 4, 0, 5, 0),
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 50, 51, 204, 204, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 101, 230, 204, 204, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 153, 153, 50, 179, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 84, 85, 170, 170, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 204, 76, 102, 102, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 50, 179, 204, 76, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 84, 213, 170, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 51, 153, 25)
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5jpy"]
+albedo_texture = ExtResource("1_0cksm")
+
+[node name="Planet" type="Node3D"]
+
+[node name="PlanetMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_kkubs")
+surface_material_override/0 = SubResource("StandardMaterial3D_l5jpy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.41363, -0.235614, 0.879429, 0.612372, 0.786788, -0.0772291, -0.673728, 0.570483, 0.469723, 7.8736, 1.40212, 4.23008)

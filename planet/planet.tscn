@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://4nj538cgjtkg"]
+
+[ext_resource type="Script" path="res://planet/PlanetMesh.gd" id="1_oigoi"]
+[ext_resource type="Script" path="res://planet/TerrainFace.cs" id="2_fhexc"]
+
+[node name="Planet" type="Node3D"]
+
+[node name="PlanetMesh" type="MeshInstance3D" parent="."]
+script = ExtResource("1_oigoi")
+
+[node name="TerrainFace" type="Node3D" parent="."]
+script = ExtResource("2_fhexc")
