@@ -2,6 +2,9 @@
 extends MeshInstance3D
 
 @export var update = false
+#var a = 1
+#var b = 2
+#var c = a + b
 
 
 # Called when the node enters the scene tree for the first time.
@@ -77,7 +80,7 @@ func gen_mesh():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if update:
 		gen_mesh()
 		update = false
