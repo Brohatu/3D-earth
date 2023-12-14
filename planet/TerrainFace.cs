@@ -2,13 +2,15 @@ using Godot;
 using Microsoft.VisualBasic;
 using System;
 
-public class TerrainFace
+public partial class TerrainFace : MeshInstance3D
 {
 	ArrayMesh mesh_array;
 	int resolution;
 	Vector3 localUp;	// Normal to surface
 	Vector3 axisA;
 	Vector3 axisB;
+	
+	
 	
 	public TerrainFace(ArrayMesh mesh, int resolution, Vector3 localUp)
 	{
@@ -18,6 +20,7 @@ public class TerrainFace
 		
 		axisA = new Vector3(localUp.Y, localUp.Z, localUp.X);
 		axisB = localUp.Cross(axisA);
+		
 	}
 	
 	public void ConstructMesh()
@@ -66,13 +69,6 @@ public class TerrainFace
 
 		mesh_array.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, meshData);
 		
-		var m = new MeshInstance3D();
 		
-		//mesh.vertices = vertices;
-		//mesh.triangles = triangles;
-		//mesh.RecalculateNormals();
-
-
 	}
-	
 }
