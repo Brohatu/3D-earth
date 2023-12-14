@@ -1,12 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://4nj538cgjtkg"]
+[gd_scene load_steps=3 format=3 uid="uid://4nj538cgjtkg"]
 
-[ext_resource type="Script" path="res://planet/TerrainFace.cs" id="2_fhexc"]
+[ext_resource type="Script" path="res://planet/TerrainFace.gd" id="1_2jlxx"]
+[ext_resource type="Script" path="res://planet/planet.gd" id="1_vj208"]
 
 [node name="Planet" type="Node3D"]
-
-[node name="PlanetMesh" type="MeshInstance3D" parent="."]
-visible = false
+script = ExtResource("1_vj208")
 
 [node name="TerrainFace" type="MeshInstance3D" parent="."]
-script = ExtResource("2_fhexc")
-metadata/update = false
+script = ExtResource("1_2jlxx")
