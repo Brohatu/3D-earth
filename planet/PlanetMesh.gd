@@ -15,7 +15,7 @@ func gen_mesh():
 			var x: float = sin(angle1) * cos(angle2)
 			var y: float = cos(angle1)
 			var z: float = sin(angle1) * sin(angle2)
-			var point_on_sphere: Vector3(x,y,z)
+			var point_on_sphere: Vector3 = Vector3(x,y,z)
 
 
 
@@ -25,5 +25,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
